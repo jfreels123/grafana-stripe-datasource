@@ -31,7 +31,7 @@ export function ConfigEditor({ options, onOptionsChange }: Props) {
           id="config-editor-api-key"
           isConfigured={secureJsonFields.apiKey}
           value={secureJsonData?.apiKey || ''}
-          placeholder="sk_live_... or sk_test_..."
+          placeholder="sk_... or rk_... (secret or restricted key)"
           width={40}
           onReset={onResetAPIKey}
           onChange={onAPIKeyChange}
