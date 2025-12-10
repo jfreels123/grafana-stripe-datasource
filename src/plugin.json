@@ -1,22 +1,28 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "datasource",
-  "name": "Stripe-Datasource",
+  "name": "Stripe",
   "id": "jfreels123-stripe-datasource",
   "metrics": true,
   "backend": true,
   "executable": "gpx_stripe_datasource",
   "info": {
-    "description": "",
+    "description": "Stripe data source for Grafana - MRR, ARR, revenue, and subscriber metrics",
     "author": {
-      "name": "Jfreels123"
+      "name": "jfreels123",
+      "url": "https://github.com/jfreels123"
     },
-    "keywords": ["datasource"],
+    "keywords": ["datasource", "stripe", "revenue", "mrr", "arr", "saas"],
     "logos": {
       "small": "img/logo.svg",
       "large": "img/logo.svg"
     },
-    "links": [],
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/jfreels123/grafana-stripe-datasource"
+      }
+    ],
     "screenshots": [],
     "version": "%VERSION%",
     "updated": "%TODAY%"

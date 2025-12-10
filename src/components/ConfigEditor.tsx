@@ -1,71 +1,42 @@
 import React, { ChangeEvent } from 'react';
-import { InlineField, Input, SecretInput } from '@grafana/ui';
+import { FieldSet, InlineField, SecretInput } from '@grafana/ui';
 import { DataSourcePluginOptionsEditorProps } from '@grafana/data';
-import { MyDataSourceOptions, MySecureJsonData } from '../types';
+import { StripeDataSourceOptions, StripeSecureJsonData } from '../types';
 
-interface Props extends DataSourcePluginOptionsEditorProps<MyDataSourceOptions, MySecureJsonData> {}
+type Props = DataSourcePluginOptionsEditorProps<StripeDataSourceOptions, StripeSecureJsonData>;
 
-export function ConfigEditor(props: Props) {
-  const { onOptionsChange, options } = props;
-  const { jsonData, secureJsonFields, secureJsonData } = options;
+export function ConfigEditor({ options, onOptionsChange }: Props) {
+  const { secureJsonFields, secureJsonData } = options;
 
-  const onPathChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onOptionsChange({
-      ...options,
-      jsonData: {
-        ...jsonData,
-        path: event.target.value,
-      },
-    });
-  };
-
-  // Secure field (only sent to the backend)
   const onAPIKeyChange = (event: ChangeEvent<HTMLInputElement>) => {
     onOptionsChange({
       ...options,
-      secureJsonData: {
-        apiKey: event.target.value,
-      },
+      secureJsonData: { apiKey: event.target.value },
     });
   };
 
   const onResetAPIKey = () => {
     onOptionsChange({
       ...options,
-      secureJsonFields: {
-        ...options.secureJsonFields,
-        apiKey: false,
-      },
-      secureJsonData: {
-        ...options.secureJsonData,
-        apiKey: '',
-      },
+      secureJsonFields: { ...secureJsonFields, apiKey: false },
+      secureJsonData: { ...secureJsonData, apiKey: '' },
     });
   };
 
   return (
-    <>
-      <InlineField label="Path" labelWidth={14} interactive tooltip={'Json field returned to frontend'}>
-        <Input
-          id="config-editor-path"
-          onChange={onPathChange}
-          value={jsonData.path}
-          placeholder="Enter the path, e.g. /api/v1"
-          width={40}
-        />
-      </InlineField>
-      <InlineField label="API Key" labelWidth={14} interactive tooltip={'Secure json field (backend only)'}>
+    <FieldSet label="Stripe API">
+      <InlineField label="API Key" labelWidth={12} tooltip="Your Stripe secret API key (sk_...)">
         <SecretInput
           required
           id="config-editor-api-key"
           isConfigured={secureJsonFields.apiKey}
-          value={secureJsonData?.apiKey}
-          placeholder="Enter your API key"
+          value={secureJsonData?.apiKey || ''}
+          placeholder="sk_live_... or sk_test_..."
           width={40}
           onReset={onResetAPIKey}
           onChange={onAPIKeyChange}
         />
       </InlineField>
-    </>
+    </FieldSet>
   );
 }

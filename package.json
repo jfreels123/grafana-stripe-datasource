@@ -32,6 +32,7 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
+    "ajv": "^8.17.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "eslint": "^9.0.0",
@@ -70,8 +71,8 @@
     "@grafana/data": "^12.3.0",
     "@grafana/i18n": "^12.3.0",
     "@grafana/runtime": "^12.3.0",
-    "@grafana/ui": "^12.3.0",
     "@grafana/schema": "^12.3.0",
+    "@grafana/ui": "^12.3.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
   },
