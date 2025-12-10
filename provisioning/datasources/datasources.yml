@@ -1,14 +1,10 @@
 apiVersion: 1
 
 datasources:
-  - name: 'stripe-datasource'
-    type: 'jfreels123-stripe-datasource'
+  - name: Stripe
+    type: jfreels123-stripe-datasource
     access: proxy
     isDefault: false
-    orgId: 1
-    version: 1
     editable: true
-    jsonData:
-      path: '/resources'
     secureJsonData:
-      apiKey: 'api-key'
+      apiKey: ${STRIPE_API_KEY}

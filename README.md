@@ -31,7 +31,7 @@ A Grafana data source plugin for visualizing Stripe metrics including MRR, ARR, 
 
 ### API Key Permissions
 
-Use a restricted API key with read-only access to:
+Create a [restricted API key](https://dashboard.stripe.com/apikeys) with read-only access to:
 - Customers (read)
 - Subscriptions (read)
 - Balance (read)
@@ -48,20 +48,40 @@ Use **Table** visualization with "Subscriptions" metric to see all active subscr
 
 ## Development
 
+### Setup
+
 ```bash
-# Install dependencies
+# Clone and install
+git clone https://github.com/jfreels123/grafana-stripe-datasource.git
+cd grafana-stripe-datasource/jfreels123-stripe-datasource
 npm install
 
-# Start frontend dev server
+# Configure your Stripe API key
+cp .env.example .env
+# Edit .env and add your STRIPE_API_KEY
+```
+
+### Run
+
+```bash
+# Terminal 1: Frontend (watches for changes)
 npm run dev
 
-# Build backend (requires mage)
+# Terminal 2: Backend (rebuild after Go changes)
 mage -v build:darwin  # or build:linux
 
-# Start Grafana dev environment
+# Terminal 3: Grafana dev server
 docker compose up
+```
 
-# Open http://localhost:3000 (admin/admin)
+Open http://localhost:3000 (admin/admin). The Stripe data source will be pre-configured.
+
+### Test
+
+```bash
+npm run test        # Frontend tests
+go test ./pkg/...   # Backend tests
+npm run lint        # Linting
 ```
 
 ## Distributing
