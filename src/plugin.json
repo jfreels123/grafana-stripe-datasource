@@ -23,7 +23,12 @@
         "url": "https://github.com/jfreels123/grafana-stripe-datasource"
       }
     ],
-    "screenshots": [],
+    "screenshots": [
+      {
+        "name": "Dashboard",
+        "path": "img/screenshot-dashboard.png"
+      }
+    ],
     "version": "%VERSION%",
     "updated": "%TODAY%"
   },
