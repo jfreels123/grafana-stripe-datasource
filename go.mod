@@ -1,15 +1,15 @@
 module github.com/jfreels123/stripe-datasource
 
-go 1.21
+go 1.24.0
 
 require (
-	github.com/grafana/grafana-plugin-sdk-go v0.250.0
+	github.com/grafana/grafana-plugin-sdk-go v0.270.0
 	github.com/stripe/stripe-go/v82 v82.5.1
 )
 
 require (
 	github.com/BurntSushi/toml v1.5.0 // indirect
-	github.com/apache/arrow/go/v15 v15.0.2 // indirect
+	github.com/apache/arrow-go/v18 v18.0.1-0.20241212180703-82be143d7c30 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
