@@ -4,7 +4,7 @@ import { StripeDataSourceOptions, StripeSecureJsonData } from '../src/types';
 test('smoke: should render config editor', async ({ createDataSourceConfigPage, readProvisionedDataSource, page }) => {
   const ds = await readProvisionedDataSource({ fileName: 'datasources.yml' });
   await createDataSourceConfigPage({ type: ds.type });
-  await expect(page.getByPlaceholder('sk_live_... or sk_test_...')).toBeVisible();
+  await expect(page.getByPlaceholder('sk_... or rk_... (secret or restricted key)')).toBeVisible();
 });
 
 test('"Save & test" should fail when API key is missing', async ({
