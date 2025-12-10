@@ -1,6 +1,6 @@
 module github.com/jfreels123/stripe-datasource
 
-go 1.24.0
+go 1.21
 
 require (
 	github.com/grafana/grafana-plugin-sdk-go v0.270.0
